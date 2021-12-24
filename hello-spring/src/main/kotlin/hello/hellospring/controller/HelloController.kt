@@ -31,4 +31,14 @@ class HelloController {
     fun helloString(@RequestParam("name") name: String): String {
         return "hello $name"
     }
+
+    // 데이터를 넣어야할때
+    // json 방식
+    @GetMapping("hello-api")
+    @ResponseBody
+    fun helloApi(@RequestParam("name") name: String): Hello {
+        return Hello(name)
+    }
+
+    data class Hello(var name:String)
 }
